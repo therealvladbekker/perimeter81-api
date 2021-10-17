@@ -46,21 +46,14 @@ def delete_user(auth: Auth, user_id: str) -> ApiCallResultBase:
 
 
 def delete_users(auth: Auth, user_ids: List[str]) -> ApiCallResultBase:
-    url_template: str = '{}/v1/users/{}'
-    errors: List[Err] = []
-    for user_id in user_ids:
-        url: str = url_template.format(_BASE_URL, user_id)
-        try:
-            _delete(url, auth)
-        except Exception as e:
-            errors.append(str(e))
-    return ApiCallResultBase(len(errors) == 0, errors)
+    return _do_delete(auth, user_ids, '{}/v1/groups/{}')
 
 
 def list_users(auth: Auth, list_users_args: ListUsersArguments):
-    #url: str = f'{_BASE_URL}/v1/users/'
-    #url =
-    # TODO waiting for input from David 
+    # url: str = f'{_BASE_URL}/v1/users/'
+    # url =
+
+    # see https://perimeter81.slack.com/archives/D02HSK04B8B/p1634457043001200
     pass
 
 
@@ -87,15 +80,7 @@ def delete_group(auth: Auth, group_id: str) -> ApiCallResultBase:
 
 
 def delete_groups(auth: Auth, group_ids: List[str]) -> ApiCallResultBase:
-    url_template: str = '{}/v1/groups/{}'
-    errors: List[Err] = []
-    for group_id in group_ids:
-        url: str = url_template.format(_BASE_URL, group_id)
-        try:
-            _delete(url, auth)
-        except Exception as e:
-            errors.append(str(e))
-    return ApiCallResultBase(len(errors) == 0, errors)
+    return _do_delete(auth, group_ids, '{}/v1/groups/{}')
 
 
 def authenticate(api_key: str) -> Auth:
@@ -108,6 +93,17 @@ def authenticate(api_key: str) -> Auth:
     headers: Dict = {'Content-type': 'application/json', 'accept': 'application/json'}
     auth: Dict = _post(_AUTH_URL, headers, data)
     return _make_headers(auth['data']['accessToken'])
+
+
+def _do_delete(auth: Auth, ids: List[str], url_template: str) -> ApiCallResultBase:
+    errors: List[Err] = []
+    for _id in ids:
+        url: str = url_template.format(_BASE_URL, _id)
+        try:
+            _delete(url, auth)
+        except Exception as e:
+            errors.append(str(e))
+    return ApiCallResultBase(len(errors) == 0, errors)
 
 
 def _delete(url: str, headers: Dict, expected_status_code: int = 200) -> None:
