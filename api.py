@@ -5,6 +5,8 @@ from copy import copy
 from dataclasses import asdict
 from typing import List, Dict
 
+from dacite import from_dict
+
 from model import (
     Group,
     Err,
@@ -14,13 +16,27 @@ from model import (
     CreateUserResponse,
     CreateGroupApiCallResult,
     CreateUserApiCallResult,
-    ApiCallResultBase, ListUsersArguments
+    ApiCallResultBase,
+    ListUsersArguments,
+    ListNetworksApiCallResult, Network
 )
 
 _AUTH_URL = 'https://api.perimeter81.com/api/v1/auth/authorize'
 _BASE_URL = 'https://api.perimeter81.com/api/rest'
 _AUTH_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json',
                  'Authorization': '<REPLACE_ME>'}
+
+
+def authenticate(api_key: str) -> Auth:
+    def _make_headers(token: str) -> Auth:
+        result: Dict = copy(_AUTH_HEADERS)
+        result['Authorization'] = f'Bearer {token}'
+        return result
+
+    data: Dict = {'grantType': 'api_key', 'apiKey': api_key}
+    headers: Dict = {'Content-type': 'application/json', 'accept': 'application/json'}
+    auth: Dict = _post(_AUTH_URL, headers, data)
+    return _make_headers(auth['data']['accessToken'])
 
 
 def create_user(auth: Auth, user: User) -> CreateUserApiCallResult:
@@ -49,12 +65,35 @@ def delete_users(auth: Auth, user_ids: List[str]) -> ApiCallResultBase:
     return _do_delete(auth, user_ids, '{}/v1/groups/{}')
 
 
-def list_users(auth: Auth, list_users_args: ListUsersArguments):
+def _list_users(auth: Auth, list_users_args: ListUsersArguments):
     # url: str = f'{_BASE_URL}/v1/users/'
     # url =
 
     # see https://perimeter81.slack.com/archives/D02HSK04B8B/p1634457043001200
     pass
+
+
+def get_network_health(auth: Auth, network_id: str):
+    return get_networks_health(auth, [network_id])
+
+
+def get_networks_health(auth: Auth, network_ids: List[str]):
+    url_template: str = '{}/v1/networks/{}/health'
+    for _id in network_ids:
+        url: str = url_template.format(_BASE_URL, _id)
+        result = _get(url, auth)
+        print(result)
+
+
+def list_networks(auth: Auth) -> ListNetworksApiCallResult:
+    url: str = f'{_BASE_URL}/v1/networks'
+    try:
+        temp_results: List[Dict] = _get(url, auth)
+        results: List[Network] = [from_dict(Network, x) for x in temp_results['data']]
+        print(temp_results)
+        return ListNetworksApiCallResult(True, None, results)
+    except Exception as e:
+        return ListNetworksApiCallResult(False, [str(e)], None)
 
 
 def create_group(auth: Auth, group: Group) -> CreateGroupApiCallResult:
@@ -83,18 +122,6 @@ def delete_groups(auth: Auth, group_ids: List[str]) -> ApiCallResultBase:
     return _do_delete(auth, group_ids, '{}/v1/groups/{}')
 
 
-def authenticate(api_key: str) -> Auth:
-    def _make_headers(token: str) -> Auth:
-        result: Dict = copy(_AUTH_HEADERS)
-        result['Authorization'] = f'Bearer {token}'
-        return result
-
-    data: Dict = {'grantType': 'api_key', 'apiKey': api_key}
-    headers: Dict = {'Content-type': 'application/json', 'accept': 'application/json'}
-    auth: Dict = _post(_AUTH_URL, headers, data)
-    return _make_headers(auth['data']['accessToken'])
-
-
 def _do_delete(auth: Auth, ids: List[str], url_template: str) -> ApiCallResultBase:
     errors: List[Err] = []
     for _id in ids:
@@ -104,6 +131,17 @@ def _do_delete(auth: Auth, ids: List[str], url_template: str) -> ApiCallResultBa
         except Exception as e:
             errors.append(str(e))
     return ApiCallResultBase(len(errors) == 0, errors)
+
+
+def _get(url: str, headers: Dict, expected_status_code: int = 200) -> List[Dict]:
+    request: urllib.request.Request = urllib.request.Request(url=url, method='GET', headers=headers)
+    response: http.client.HTTPResponse = urllib.request.urlopen(request)
+    if response.getcode() != expected_status_code:
+        reason: str = response.read()
+        raise Exception(
+            f'Expected status code: {expected_status_code}. Actual status code: {response.getcode()}. Reason: {reason}')
+    else:
+        return json.loads(response.read().decode('utf8'))
 
 
 def _delete(url: str, headers: Dict, expected_status_code: int = 200) -> None:
