@@ -1,6 +1,6 @@
 ## Perimeter81 Public (Unofficial) API
 
-A python wrapper Perimeter81 [public API](https://support.perimeter81.com/docs/api-getting-started)
+A python wrapper of Perimeter81 [public API](https://support.perimeter81.com/docs/api-getting-started)
 
 Getting started:
 - Get Your API token (Vlad)
