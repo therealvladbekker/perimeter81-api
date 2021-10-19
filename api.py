@@ -18,9 +18,16 @@ from model import (
     CreateUserApiCallResult,
     ApiCallResultBase,
     ListUsersArguments,
-    ListNetworksApiCallResult, Network
+    ListNetworksApiCallResult,
+    Network,
+    NetworkHealth,
+    GetNetworksHealthApiCallResult
 )
 
+
+"""
+P81 API
+"""
 _AUTH_URL = 'https://api.perimeter81.com/api/v1/auth/authorize'
 _BASE_URL = 'https://api.perimeter81.com/api/rest'
 _AUTH_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json',
@@ -28,6 +35,9 @@ _AUTH_HEADERS = {'Accept': 'application/json', 'Content-Type': 'application/json
 
 
 def authenticate(api_key: str) -> Auth:
+    """
+    Authenticate
+    """
     def _make_headers(token: str) -> Auth:
         result: Dict = copy(_AUTH_HEADERS)
         result['Authorization'] = f'Bearer {token}'
@@ -40,10 +50,16 @@ def authenticate(api_key: str) -> Auth:
 
 
 def create_user(auth: Auth, user: User) -> CreateUserApiCallResult:
+    """
+    Create a User
+    """
     return create_users(auth, [user])
 
 
 def create_users(auth: Auth, users: List[User]) -> CreateUserApiCallResult:
+    """
+    Create a few Users
+    """
     url: str = f'{_BASE_URL}/v1/users'
     errors: List[Err] = []
     results: List[CreateUserResponse] = []
@@ -58,34 +74,53 @@ def create_users(auth: Auth, users: List[User]) -> CreateUserApiCallResult:
 
 
 def delete_user(auth: Auth, user_id: str) -> ApiCallResultBase:
+    """
+    Delete a User
+    """
     return delete_users(auth, [user_id])
 
 
 def delete_users(auth: Auth, user_ids: List[str]) -> ApiCallResultBase:
+    """
+    Delete a few Users
+    """
     return _do_delete(auth, user_ids, '{}/v1/groups/{}')
 
 
 def _list_users(auth: Auth, list_users_args: ListUsersArguments):
-    # url: str = f'{_BASE_URL}/v1/users/'
-    # url =
-
+    # TODO: implement
     # see https://perimeter81.slack.com/archives/D02HSK04B8B/p1634457043001200
     pass
 
 
-def get_network_health(auth: Auth, network_id: str):
+def get_network_health(auth: Auth, network_id: str) -> GetNetworksHealthApiCallResult:
+    """
+    Get Network health
+    """
     return get_networks_health(auth, [network_id])
 
 
-def get_networks_health(auth: Auth, network_ids: List[str]):
+def get_networks_health(auth: Auth, network_ids: List[str]) -> GetNetworksHealthApiCallResult:
+    """
+    Get a few Networks health
+    """
     url_template: str = '{}/v1/networks/{}/health'
+    errors: List[Err] = []
+    results: List[NetworkHealth]
     for _id in network_ids:
         url: str = url_template.format(_BASE_URL, _id)
-        result = _get(url, auth)
-        print(result)
+        try:
+            temp_result: Dict = _get(url, auth)
+            results.append(from_dict(NetworkHealth, temp_result['data']))
+        except Exception as e:
+            errors.append(str(e))
+    return GetNetworksHealthApiCallResult(len(errors) == 0, errors, results)
 
 
 def list_networks(auth: Auth) -> ListNetworksApiCallResult:
+    """
+    List Networks
+    """
     url: str = f'{_BASE_URL}/v1/networks'
     try:
         temp_results: List[Dict] = _get(url, auth)
@@ -97,10 +132,17 @@ def list_networks(auth: Auth) -> ListNetworksApiCallResult:
 
 
 def create_group(auth: Auth, group: Group) -> CreateGroupApiCallResult:
+    """
+    Create a Group
+    """
     return create_groups(auth, [group])
 
 
 def create_groups(auth: Auth, groups: List[Group]) -> CreateGroupApiCallResult:
+    """
+    Create a few Groups
+    """
+
     url: str = f'{_BASE_URL}/v1/groups'
     errors: List[Err] = []
     results: List[CreateGroupResponse] = []

@@ -23,13 +23,13 @@ def main():
     parser.add_argument('--file', '-F', type=str, required=True,
                         help='argument takes in a csv format file with groups/descriptions')
     args = parser.parse_args()
-    groups: List[Group] =  [] #_get_groups(args.file)
+    groups: List[Group] = []  # _get_groups(args.file)
     auth: Auth = api.authenticate(args.apikey)
     networks: ListNetworksApiCallResult = api.list_networks(auth)
     if networks.success:
         for nw in networks.results:
             print(nw.id)
-            print(api.get_network_health(auth,nw.id))
+            print(api.get_network_health(auth, nw.id))
     # result: CreateGroupApiCallResult = api.create_groups(auth, groups)
     # if not result.success:
     #     logging.error(f'Failed to create {len(result.errors)} groups. Details: {result.errors}')
