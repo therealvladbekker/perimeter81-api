@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>perimeter81-api.model API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>perimeter81-api.model</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from dataclasses import dataclass
+from typing import List, Dict, Any
+from enum import Enum, auto
+
+Err = str
+Auth = Dict
+
+
+@dataclass
+class Group:
+    name: str
+    description: str
+
+
+@dataclass
+class CreateGroupResponse:
+    tenantId: str
+    name: str
+    description: str
+    isDefault: bool
+    applications: List
+    networks: List
+    vpnLocations: List
+    users: List
+    createdAt: str
+    updatedAt: str
+    id: str
+
+
+@dataclass
+class ProfileData:
+    firstName: str
+    lastName: str
+    roleName: str
+    phone: str
+
+
+@dataclass
+class User:
+    email: str
+    inviteMessage: str
+    accessGroups: List[str]
+    profileData: ProfileData
+
+
+@dataclass
+class InternalUser(User):
+    idpType: str = &#39;database&#39;
+    origin: str = &#39;API&#39;
+    emailVerified: bool = True
+
+
+@dataclass
+class CreateUserResponse:
+    tenantId: str
+    terminated: bool
+    initialsColor: str
+    invitationAttempts: int
+    role: str
+    username: str
+    emailVerified: bool
+    inviteMessage: str
+    roleName: str
+    firstName: str
+    lastName: str
+    phone: str
+    initials: str
+    idProviders: Any
+    createdAt: str
+    updatedAt: str
+    id: str
+
+
+class QueryType(Enum):
+    full: auto()
+    partial: auto()
+
+
+class QueryOperator(Enum):
+    and_: auto()
+    or_: auto()
+
+
+class SortOrder(Enum):
+    asc: auto()
+    desc: auto
+
+
+@dataclass
+class Sort:
+    field: str
+    order: SortOrder
+
+
+@dataclass()
+class ApiCallResultBase:
+    success: bool
+    errors: List[Err]
+
+
+@dataclass
+class CreateGroupApiCallResult(ApiCallResultBase):
+    results: List[CreateGroupResponse]
+
+
+@dataclass
+class CreateUserApiCallResult(ApiCallResultBase):
+    results: List[CreateUserResponse]
+
+
+@dataclass
+class ListUsersArguments:
+    q: str
+    sort: List[Sort]
+    qType: QueryType  # = QueryType.full.full
+    qOperator: QueryOperator  # = QueryOperator.or_
+    page: int = 1
+    limit: int = 50
+
+
+@dataclass
+class NetworkGeoPoint:
+    latitude: float
+    longitude: float
+
+
+@dataclass
+class NetworkProvider:
+    region: str
+    continentCode: str
+    countryCode: str
+
+
+@dataclass
+class NetworkRegion:
+    geoPoint: NetworkGeoPoint
+    name: str
+    instances: List[Dict]
+    provider: NetworkProvider
+    id: str
+
+
+@dataclass
+class NetworkMeta:
+    networkId: str
+    instanceId: str
+
+
+@dataclass
+class NetworkStatus:
+    type_: str
+    meta: NetworkMeta
+    status: bool
+
+
+@dataclass
+class NetworkHealth:
+    health: List[NetworkStatus]
+
+
+@dataclass
+class Network:
+    geoPoint: NetworkGeoPoint
+    name: str
+    isDefault: bool
+    regions: List[NetworkRegion]
+    id: str
+
+
+@dataclass
+class ListNetworksApiCallResult(ApiCallResultBase):
+    results: List[Network]
+
+
+@dataclass
+class GetNetworksHealthApiCallResult(ApiCallResultBase):
+    results: List[NetworkHealth]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="perimeter81-api.model.ApiCallResultBase"><code class="flex name class">
+<span>class <span class="ident">ApiCallResultBase</span></span>
+<span>(</span><span>success: bool, errors: List[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ApiCallResultBase(success: bool, errors: List[str])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ApiCallResultBase:
+    success: bool
+    errors: List[Err]</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.CreateGroupApiCallResult" href="#perimeter81-api.model.CreateGroupApiCallResult">CreateGroupApiCallResult</a></li>
+<li><a title="perimeter81-api.model.CreateUserApiCallResult" href="#perimeter81-api.model.CreateUserApiCallResult">CreateUserApiCallResult</a></li>
+<li><a title="perimeter81-api.model.GetNetworksHealthApiCallResult" href="#perimeter81-api.model.GetNetworksHealthApiCallResult">GetNetworksHealthApiCallResult</a></li>
+<li><a title="perimeter81-api.model.ListNetworksApiCallResult" href="#perimeter81-api.model.ListNetworksApiCallResult">ListNetworksApiCallResult</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.ApiCallResultBase.errors"><code class="name">var <span class="ident">errors</span> : List[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ApiCallResultBase.success"><code class="name">var <span class="ident">success</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupApiCallResult"><code class="flex name class">
+<span>class <span class="ident">CreateGroupApiCallResult</span></span>
+<span>(</span><span>success: bool, errors: List[str], results: List[perimeter81-api.model.CreateGroupResponse])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CreateGroupApiCallResult(success: bool, errors: List[str], results: List[perimeter81-api.model.CreateGroupResponse])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CreateGroupApiCallResult(ApiCallResultBase):
+    results: List[CreateGroupResponse]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.ApiCallResultBase" href="#perimeter81-api.model.ApiCallResultBase">ApiCallResultBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.CreateGroupApiCallResult.results"><code class="name">var <span class="ident">results</span> : List[perimeter81-api.model.CreateGroupResponse]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse"><code class="flex name class">
+<span>class <span class="ident">CreateGroupResponse</span></span>
+<span>(</span><span>tenantId: str, name: str, description: str, isDefault: bool, applications: List[~T], networks: List[~T], vpnLocations: List[~T], users: List[~T], createdAt: str, updatedAt: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CreateGroupResponse(tenantId: str, name: str, description: str, isDefault: bool, applications: List, networks: List, vpnLocations: List, users: List, createdAt: str, updatedAt: str, id: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CreateGroupResponse:
+    tenantId: str
+    name: str
+    description: str
+    isDefault: bool
+    applications: List
+    networks: List
+    vpnLocations: List
+    users: List
+    createdAt: str
+    updatedAt: str
+    id: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.CreateGroupResponse.applications"><code class="name">var <span class="ident">applications</span> : List[~T]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.createdAt"><code class="name">var <span class="ident">createdAt</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.description"><code class="name">var <span class="ident">description</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.isDefault"><code class="name">var <span class="ident">isDefault</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.networks"><code class="name">var <span class="ident">networks</span> : List[~T]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.tenantId"><code class="name">var <span class="ident">tenantId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.updatedAt"><code class="name">var <span class="ident">updatedAt</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.users"><code class="name">var <span class="ident">users</span> : List[~T]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateGroupResponse.vpnLocations"><code class="name">var <span class="ident">vpnLocations</span> : List[~T]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.CreateUserApiCallResult"><code class="flex name class">
+<span>class <span class="ident">CreateUserApiCallResult</span></span>
+<span>(</span><span>success: bool, errors: List[str], results: List[perimeter81-api.model.CreateUserResponse])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CreateUserApiCallResult(success: bool, errors: List[str], results: List[perimeter81-api.model.CreateUserResponse])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CreateUserApiCallResult(ApiCallResultBase):
+    results: List[CreateUserResponse]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.ApiCallResultBase" href="#perimeter81-api.model.ApiCallResultBase">ApiCallResultBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.CreateUserApiCallResult.results"><code class="name">var <span class="ident">results</span> : List[perimeter81-api.model.CreateUserResponse]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse"><code class="flex name class">
+<span>class <span class="ident">CreateUserResponse</span></span>
+<span>(</span><span>tenantId: str, terminated: bool, initialsColor: str, invitationAttempts: int, role: str, username: str, emailVerified: bool, inviteMessage: str, roleName: str, firstName: str, lastName: str, phone: str, initials: str, idProviders: Any, createdAt: str, updatedAt: str, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CreateUserResponse(tenantId: str, terminated: bool, initialsColor: str, invitationAttempts: int, role: str, username: str, emailVerified: bool, inviteMessage: str, roleName: str, firstName: str, lastName: str, phone: str, initials: str, idProviders: Any, createdAt: str, updatedAt: str, id: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CreateUserResponse:
+    tenantId: str
+    terminated: bool
+    initialsColor: str
+    invitationAttempts: int
+    role: str
+    username: str
+    emailVerified: bool
+    inviteMessage: str
+    roleName: str
+    firstName: str
+    lastName: str
+    phone: str
+    initials: str
+    idProviders: Any
+    createdAt: str
+    updatedAt: str
+    id: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.CreateUserResponse.createdAt"><code class="name">var <span class="ident">createdAt</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.emailVerified"><code class="name">var <span class="ident">emailVerified</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.firstName"><code class="name">var <span class="ident">firstName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.idProviders"><code class="name">var <span class="ident">idProviders</span> : Any</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.initials"><code class="name">var <span class="ident">initials</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.initialsColor"><code class="name">var <span class="ident">initialsColor</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.invitationAttempts"><code class="name">var <span class="ident">invitationAttempts</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.inviteMessage"><code class="name">var <span class="ident">inviteMessage</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.lastName"><code class="name">var <span class="ident">lastName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.phone"><code class="name">var <span class="ident">phone</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.role"><code class="name">var <span class="ident">role</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.roleName"><code class="name">var <span class="ident">roleName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.tenantId"><code class="name">var <span class="ident">tenantId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.terminated"><code class="name">var <span class="ident">terminated</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.updatedAt"><code class="name">var <span class="ident">updatedAt</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.CreateUserResponse.username"><code class="name">var <span class="ident">username</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.GetNetworksHealthApiCallResult"><code class="flex name class">
+<span>class <span class="ident">GetNetworksHealthApiCallResult</span></span>
+<span>(</span><span>success: bool, errors: List[str], results: List[perimeter81-api.model.NetworkHealth])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>GetNetworksHealthApiCallResult(success: bool, errors: List[str], results: List[perimeter81-api.model.NetworkHealth])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GetNetworksHealthApiCallResult(ApiCallResultBase):
+    results: List[NetworkHealth]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.ApiCallResultBase" href="#perimeter81-api.model.ApiCallResultBase">ApiCallResultBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.GetNetworksHealthApiCallResult.results"><code class="name">var <span class="ident">results</span> : List[perimeter81-api.model.NetworkHealth]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.Group"><code class="flex name class">
+<span>class <span class="ident">Group</span></span>
+<span>(</span><span>name: str, description: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Group(name: str, description: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Group:
+    name: str
+    description: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.Group.description"><code class="name">var <span class="ident">description</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Group.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.InternalUser"><code class="flex name class">
+<span>class <span class="ident">InternalUser</span></span>
+<span>(</span><span>email: str, inviteMessage: str, accessGroups: List[str], profileData: perimeter81-api.model.ProfileData, idpType: str = 'database', origin: str = 'API', emailVerified: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>InternalUser(email: str, inviteMessage: str, accessGroups: List[str], profileData: perimeter81-api.model.ProfileData, idpType: str = 'database', origin: str = 'API', emailVerified: bool = True)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InternalUser(User):
+    idpType: str = &#39;database&#39;
+    origin: str = &#39;API&#39;
+    emailVerified: bool = True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.User" href="#perimeter81-api.model.User">User</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.InternalUser.emailVerified"><code class="name">var <span class="ident">emailVerified</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.InternalUser.idpType"><code class="name">var <span class="ident">idpType</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.InternalUser.origin"><code class="name">var <span class="ident">origin</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.ListNetworksApiCallResult"><code class="flex name class">
+<span>class <span class="ident">ListNetworksApiCallResult</span></span>
+<span>(</span><span>success: bool, errors: List[str], results: List[perimeter81-api.model.Network])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ListNetworksApiCallResult(success: bool, errors: List[str], results: List[perimeter81-api.model.Network])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ListNetworksApiCallResult(ApiCallResultBase):
+    results: List[Network]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.ApiCallResultBase" href="#perimeter81-api.model.ApiCallResultBase">ApiCallResultBase</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.ListNetworksApiCallResult.results"><code class="name">var <span class="ident">results</span> : List[perimeter81-api.model.Network]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments"><code class="flex name class">
+<span>class <span class="ident">ListUsersArguments</span></span>
+<span>(</span><span>q: str, sort: List[perimeter81-api.model.Sort], qType: perimeter81-api.model.QueryType, qOperator: perimeter81-api.model.QueryOperator, page: int = 1, limit: int = 50)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ListUsersArguments(q: str, sort: List[perimeter81-api.model.Sort], qType: perimeter81-api.model.QueryType, qOperator: perimeter81-api.model.QueryOperator, page: int = 1, limit: int = 50)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ListUsersArguments:
+    q: str
+    sort: List[Sort]
+    qType: QueryType  # = QueryType.full.full
+    qOperator: QueryOperator  # = QueryOperator.or_
+    page: int = 1
+    limit: int = 50</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.ListUsersArguments.limit"><code class="name">var <span class="ident">limit</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments.page"><code class="name">var <span class="ident">page</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments.q"><code class="name">var <span class="ident">q</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments.qOperator"><code class="name">var <span class="ident">qOperator</span> : perimeter81-api.model.QueryOperator</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments.qType"><code class="name">var <span class="ident">qType</span> : perimeter81-api.model.QueryType</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ListUsersArguments.sort"><code class="name">var <span class="ident">sort</span> : List[perimeter81-api.model.Sort]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.Network"><code class="flex name class">
+<span>class <span class="ident">Network</span></span>
+<span>(</span><span>geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, isDefault: bool, regions: List[perimeter81-api.model.NetworkRegion], id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Network(geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, isDefault: bool, regions: List[perimeter81-api.model.NetworkRegion], id: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Network:
+    geoPoint: NetworkGeoPoint
+    name: str
+    isDefault: bool
+    regions: List[NetworkRegion]
+    id: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.Network.geoPoint"><code class="name">var <span class="ident">geoPoint</span> : perimeter81-api.model.NetworkGeoPoint</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Network.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Network.isDefault"><code class="name">var <span class="ident">isDefault</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Network.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Network.regions"><code class="name">var <span class="ident">regions</span> : List[perimeter81-api.model.NetworkRegion]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkGeoPoint"><code class="flex name class">
+<span>class <span class="ident">NetworkGeoPoint</span></span>
+<span>(</span><span>latitude: float, longitude: float)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkGeoPoint(latitude: float, longitude: float)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkGeoPoint:
+    latitude: float
+    longitude: float</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkGeoPoint.latitude"><code class="name">var <span class="ident">latitude</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkGeoPoint.longitude"><code class="name">var <span class="ident">longitude</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkHealth"><code class="flex name class">
+<span>class <span class="ident">NetworkHealth</span></span>
+<span>(</span><span>health: List[perimeter81-api.model.NetworkStatus])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkHealth(health: List[perimeter81-api.model.NetworkStatus])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkHealth:
+    health: List[NetworkStatus]</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkHealth.health"><code class="name">var <span class="ident">health</span> : List[perimeter81-api.model.NetworkStatus]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkMeta"><code class="flex name class">
+<span>class <span class="ident">NetworkMeta</span></span>
+<span>(</span><span>networkId: str, instanceId: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkMeta(networkId: str, instanceId: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkMeta:
+    networkId: str
+    instanceId: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkMeta.instanceId"><code class="name">var <span class="ident">instanceId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkMeta.networkId"><code class="name">var <span class="ident">networkId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkProvider"><code class="flex name class">
+<span>class <span class="ident">NetworkProvider</span></span>
+<span>(</span><span>region: str, continentCode: str, countryCode: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkProvider(region: str, continentCode: str, countryCode: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkProvider:
+    region: str
+    continentCode: str
+    countryCode: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkProvider.continentCode"><code class="name">var <span class="ident">continentCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkProvider.countryCode"><code class="name">var <span class="ident">countryCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkProvider.region"><code class="name">var <span class="ident">region</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkRegion"><code class="flex name class">
+<span>class <span class="ident">NetworkRegion</span></span>
+<span>(</span><span>geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, instances: List[Dict[~KT, ~VT]], provider: perimeter81-api.model.NetworkProvider, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkRegion(geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, instances: List[Dict], provider: perimeter81-api.model.NetworkProvider, id: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkRegion:
+    geoPoint: NetworkGeoPoint
+    name: str
+    instances: List[Dict]
+    provider: NetworkProvider
+    id: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkRegion.geoPoint"><code class="name">var <span class="ident">geoPoint</span> : perimeter81-api.model.NetworkGeoPoint</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkRegion.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkRegion.instances"><code class="name">var <span class="ident">instances</span> : List[Dict[~KT, ~VT]]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkRegion.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkRegion.provider"><code class="name">var <span class="ident">provider</span> : perimeter81-api.model.NetworkProvider</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.NetworkStatus"><code class="flex name class">
+<span>class <span class="ident">NetworkStatus</span></span>
+<span>(</span><span>type_: str, meta: perimeter81-api.model.NetworkMeta, status: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>NetworkStatus(type_: str, meta: perimeter81-api.model.NetworkMeta, status: bool)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkStatus:
+    type_: str
+    meta: NetworkMeta
+    status: bool</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.NetworkStatus.meta"><code class="name">var <span class="ident">meta</span> : perimeter81-api.model.NetworkMeta</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkStatus.status"><code class="name">var <span class="ident">status</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.NetworkStatus.type_"><code class="name">var <span class="ident">type_</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.ProfileData"><code class="flex name class">
+<span>class <span class="ident">ProfileData</span></span>
+<span>(</span><span>firstName: str, lastName: str, roleName: str, phone: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProfileData(firstName: str, lastName: str, roleName: str, phone: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProfileData:
+    firstName: str
+    lastName: str
+    roleName: str
+    phone: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.ProfileData.firstName"><code class="name">var <span class="ident">firstName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ProfileData.lastName"><code class="name">var <span class="ident">lastName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ProfileData.phone"><code class="name">var <span class="ident">phone</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.ProfileData.roleName"><code class="name">var <span class="ident">roleName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.QueryOperator"><code class="flex name class">
+<span>class <span class="ident">QueryOperator</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class QueryOperator(Enum):
+    and_: auto()
+    or_: auto()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.QueryOperator.and_"><code class="name">var <span class="ident">and_</span> : <enum.auto object at 0x107cadd30></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.QueryOperator.or_"><code class="name">var <span class="ident">or_</span> : <enum.auto object at 0x107cadd60></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.QueryType"><code class="flex name class">
+<span>class <span class="ident">QueryType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class QueryType(Enum):
+    full: auto()
+    partial: auto()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.QueryType.full"><code class="name">var <span class="ident">full</span> : <enum.auto object at 0x107cadcd0></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.QueryType.partial"><code class="name">var <span class="ident">partial</span> : <enum.auto object at 0x107cadd00></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.Sort"><code class="flex name class">
+<span>class <span class="ident">Sort</span></span>
+<span>(</span><span>field: str, order: perimeter81-api.model.SortOrder)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sort(field: str, order: perimeter81-api.model.SortOrder)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Sort:
+    field: str
+    order: SortOrder</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.Sort.field"><code class="name">var <span class="ident">field</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.Sort.order"><code class="name">var <span class="ident">order</span> : perimeter81-api.model.SortOrder</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.SortOrder"><code class="flex name class">
+<span>class <span class="ident">SortOrder</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SortOrder(Enum):
+    asc: auto()
+    desc: auto</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.SortOrder.asc"><code class="name">var <span class="ident">asc</span> : <enum.auto object at 0x107caddf0></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.SortOrder.desc"><code class="name">var <span class="ident">desc</span> : enum.auto</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="perimeter81-api.model.User"><code class="flex name class">
+<span>class <span class="ident">User</span></span>
+<span>(</span><span>email: str, inviteMessage: str, accessGroups: List[str], profileData: perimeter81-api.model.ProfileData)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>User(email: str, inviteMessage: str, accessGroups: List[str], profileData: perimeter81-api.model.ProfileData)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class User:
+    email: str
+    inviteMessage: str
+    accessGroups: List[str]
+    profileData: ProfileData</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="perimeter81-api.model.InternalUser" href="#perimeter81-api.model.InternalUser">InternalUser</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="perimeter81-api.model.User.accessGroups"><code class="name">var <span class="ident">accessGroups</span> : List[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.User.email"><code class="name">var <span class="ident">email</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.User.inviteMessage"><code class="name">var <span class="ident">inviteMessage</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="perimeter81-api.model.User.profileData"><code class="name">var <span class="ident">profileData</span> : perimeter81-api.model.ProfileData</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="perimeter81-api" href="index.html">perimeter81-api</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="perimeter81-api.model.ApiCallResultBase" href="#perimeter81-api.model.ApiCallResultBase">ApiCallResultBase</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.ApiCallResultBase.errors" href="#perimeter81-api.model.ApiCallResultBase.errors">errors</a></code></li>
+<li><code><a title="perimeter81-api.model.ApiCallResultBase.success" href="#perimeter81-api.model.ApiCallResultBase.success">success</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.CreateGroupApiCallResult" href="#perimeter81-api.model.CreateGroupApiCallResult">CreateGroupApiCallResult</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.CreateGroupApiCallResult.results" href="#perimeter81-api.model.CreateGroupApiCallResult.results">results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.CreateGroupResponse" href="#perimeter81-api.model.CreateGroupResponse">CreateGroupResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.applications" href="#perimeter81-api.model.CreateGroupResponse.applications">applications</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.createdAt" href="#perimeter81-api.model.CreateGroupResponse.createdAt">createdAt</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.description" href="#perimeter81-api.model.CreateGroupResponse.description">description</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.id" href="#perimeter81-api.model.CreateGroupResponse.id">id</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.isDefault" href="#perimeter81-api.model.CreateGroupResponse.isDefault">isDefault</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.name" href="#perimeter81-api.model.CreateGroupResponse.name">name</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.networks" href="#perimeter81-api.model.CreateGroupResponse.networks">networks</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.tenantId" href="#perimeter81-api.model.CreateGroupResponse.tenantId">tenantId</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.updatedAt" href="#perimeter81-api.model.CreateGroupResponse.updatedAt">updatedAt</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.users" href="#perimeter81-api.model.CreateGroupResponse.users">users</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateGroupResponse.vpnLocations" href="#perimeter81-api.model.CreateGroupResponse.vpnLocations">vpnLocations</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.CreateUserApiCallResult" href="#perimeter81-api.model.CreateUserApiCallResult">CreateUserApiCallResult</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.CreateUserApiCallResult.results" href="#perimeter81-api.model.CreateUserApiCallResult.results">results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.CreateUserResponse" href="#perimeter81-api.model.CreateUserResponse">CreateUserResponse</a></code></h4>
+<ul class="two-column">
+<li><code><a title="perimeter81-api.model.CreateUserResponse.createdAt" href="#perimeter81-api.model.CreateUserResponse.createdAt">createdAt</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.emailVerified" href="#perimeter81-api.model.CreateUserResponse.emailVerified">emailVerified</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.firstName" href="#perimeter81-api.model.CreateUserResponse.firstName">firstName</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.id" href="#perimeter81-api.model.CreateUserResponse.id">id</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.idProviders" href="#perimeter81-api.model.CreateUserResponse.idProviders">idProviders</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.initials" href="#perimeter81-api.model.CreateUserResponse.initials">initials</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.initialsColor" href="#perimeter81-api.model.CreateUserResponse.initialsColor">initialsColor</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.invitationAttempts" href="#perimeter81-api.model.CreateUserResponse.invitationAttempts">invitationAttempts</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.inviteMessage" href="#perimeter81-api.model.CreateUserResponse.inviteMessage">inviteMessage</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.lastName" href="#perimeter81-api.model.CreateUserResponse.lastName">lastName</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.phone" href="#perimeter81-api.model.CreateUserResponse.phone">phone</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.role" href="#perimeter81-api.model.CreateUserResponse.role">role</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.roleName" href="#perimeter81-api.model.CreateUserResponse.roleName">roleName</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.tenantId" href="#perimeter81-api.model.CreateUserResponse.tenantId">tenantId</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.terminated" href="#perimeter81-api.model.CreateUserResponse.terminated">terminated</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.updatedAt" href="#perimeter81-api.model.CreateUserResponse.updatedAt">updatedAt</a></code></li>
+<li><code><a title="perimeter81-api.model.CreateUserResponse.username" href="#perimeter81-api.model.CreateUserResponse.username">username</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.GetNetworksHealthApiCallResult" href="#perimeter81-api.model.GetNetworksHealthApiCallResult">GetNetworksHealthApiCallResult</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.GetNetworksHealthApiCallResult.results" href="#perimeter81-api.model.GetNetworksHealthApiCallResult.results">results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.Group" href="#perimeter81-api.model.Group">Group</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.Group.description" href="#perimeter81-api.model.Group.description">description</a></code></li>
+<li><code><a title="perimeter81-api.model.Group.name" href="#perimeter81-api.model.Group.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.InternalUser" href="#perimeter81-api.model.InternalUser">InternalUser</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.InternalUser.emailVerified" href="#perimeter81-api.model.InternalUser.emailVerified">emailVerified</a></code></li>
+<li><code><a title="perimeter81-api.model.InternalUser.idpType" href="#perimeter81-api.model.InternalUser.idpType">idpType</a></code></li>
+<li><code><a title="perimeter81-api.model.InternalUser.origin" href="#perimeter81-api.model.InternalUser.origin">origin</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.ListNetworksApiCallResult" href="#perimeter81-api.model.ListNetworksApiCallResult">ListNetworksApiCallResult</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.ListNetworksApiCallResult.results" href="#perimeter81-api.model.ListNetworksApiCallResult.results">results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.ListUsersArguments" href="#perimeter81-api.model.ListUsersArguments">ListUsersArguments</a></code></h4>
+<ul class="two-column">
+<li><code><a title="perimeter81-api.model.ListUsersArguments.limit" href="#perimeter81-api.model.ListUsersArguments.limit">limit</a></code></li>
+<li><code><a title="perimeter81-api.model.ListUsersArguments.page" href="#perimeter81-api.model.ListUsersArguments.page">page</a></code></li>
+<li><code><a title="perimeter81-api.model.ListUsersArguments.q" href="#perimeter81-api.model.ListUsersArguments.q">q</a></code></li>
+<li><code><a title="perimeter81-api.model.ListUsersArguments.qOperator" href="#perimeter81-api.model.ListUsersArguments.qOperator">qOperator</a></code></li>
+<li><code><a title="perimeter81-api.model.ListUsersArguments.qType" href="#perimeter81-api.model.ListUsersArguments.qType">qType</a></code></li>
+<li><code><a title="perimeter81-api.model.ListUsersArguments.sort" href="#perimeter81-api.model.ListUsersArguments.sort">sort</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.Network" href="#perimeter81-api.model.Network">Network</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.Network.geoPoint" href="#perimeter81-api.model.Network.geoPoint">geoPoint</a></code></li>
+<li><code><a title="perimeter81-api.model.Network.id" href="#perimeter81-api.model.Network.id">id</a></code></li>
+<li><code><a title="perimeter81-api.model.Network.isDefault" href="#perimeter81-api.model.Network.isDefault">isDefault</a></code></li>
+<li><code><a title="perimeter81-api.model.Network.name" href="#perimeter81-api.model.Network.name">name</a></code></li>
+<li><code><a title="perimeter81-api.model.Network.regions" href="#perimeter81-api.model.Network.regions">regions</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkGeoPoint" href="#perimeter81-api.model.NetworkGeoPoint">NetworkGeoPoint</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkGeoPoint.latitude" href="#perimeter81-api.model.NetworkGeoPoint.latitude">latitude</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkGeoPoint.longitude" href="#perimeter81-api.model.NetworkGeoPoint.longitude">longitude</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkHealth" href="#perimeter81-api.model.NetworkHealth">NetworkHealth</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkHealth.health" href="#perimeter81-api.model.NetworkHealth.health">health</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkMeta" href="#perimeter81-api.model.NetworkMeta">NetworkMeta</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkMeta.instanceId" href="#perimeter81-api.model.NetworkMeta.instanceId">instanceId</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkMeta.networkId" href="#perimeter81-api.model.NetworkMeta.networkId">networkId</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkProvider" href="#perimeter81-api.model.NetworkProvider">NetworkProvider</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkProvider.continentCode" href="#perimeter81-api.model.NetworkProvider.continentCode">continentCode</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkProvider.countryCode" href="#perimeter81-api.model.NetworkProvider.countryCode">countryCode</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkProvider.region" href="#perimeter81-api.model.NetworkProvider.region">region</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkRegion" href="#perimeter81-api.model.NetworkRegion">NetworkRegion</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkRegion.geoPoint" href="#perimeter81-api.model.NetworkRegion.geoPoint">geoPoint</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkRegion.id" href="#perimeter81-api.model.NetworkRegion.id">id</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkRegion.instances" href="#perimeter81-api.model.NetworkRegion.instances">instances</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkRegion.name" href="#perimeter81-api.model.NetworkRegion.name">name</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkRegion.provider" href="#perimeter81-api.model.NetworkRegion.provider">provider</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.NetworkStatus" href="#perimeter81-api.model.NetworkStatus">NetworkStatus</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.NetworkStatus.meta" href="#perimeter81-api.model.NetworkStatus.meta">meta</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkStatus.status" href="#perimeter81-api.model.NetworkStatus.status">status</a></code></li>
+<li><code><a title="perimeter81-api.model.NetworkStatus.type_" href="#perimeter81-api.model.NetworkStatus.type_">type_</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.ProfileData" href="#perimeter81-api.model.ProfileData">ProfileData</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.ProfileData.firstName" href="#perimeter81-api.model.ProfileData.firstName">firstName</a></code></li>
+<li><code><a title="perimeter81-api.model.ProfileData.lastName" href="#perimeter81-api.model.ProfileData.lastName">lastName</a></code></li>
+<li><code><a title="perimeter81-api.model.ProfileData.phone" href="#perimeter81-api.model.ProfileData.phone">phone</a></code></li>
+<li><code><a title="perimeter81-api.model.ProfileData.roleName" href="#perimeter81-api.model.ProfileData.roleName">roleName</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.QueryOperator" href="#perimeter81-api.model.QueryOperator">QueryOperator</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.QueryOperator.and_" href="#perimeter81-api.model.QueryOperator.and_">and_</a></code></li>
+<li><code><a title="perimeter81-api.model.QueryOperator.or_" href="#perimeter81-api.model.QueryOperator.or_">or_</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.QueryType" href="#perimeter81-api.model.QueryType">QueryType</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.QueryType.full" href="#perimeter81-api.model.QueryType.full">full</a></code></li>
+<li><code><a title="perimeter81-api.model.QueryType.partial" href="#perimeter81-api.model.QueryType.partial">partial</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.Sort" href="#perimeter81-api.model.Sort">Sort</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.Sort.field" href="#perimeter81-api.model.Sort.field">field</a></code></li>
+<li><code><a title="perimeter81-api.model.Sort.order" href="#perimeter81-api.model.Sort.order">order</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.SortOrder" href="#perimeter81-api.model.SortOrder">SortOrder</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.SortOrder.asc" href="#perimeter81-api.model.SortOrder.asc">asc</a></code></li>
+<li><code><a title="perimeter81-api.model.SortOrder.desc" href="#perimeter81-api.model.SortOrder.desc">desc</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="perimeter81-api.model.User" href="#perimeter81-api.model.User">User</a></code></h4>
+<ul class="">
+<li><code><a title="perimeter81-api.model.User.accessGroups" href="#perimeter81-api.model.User.accessGroups">accessGroups</a></code></li>
+<li><code><a title="perimeter81-api.model.User.email" href="#perimeter81-api.model.User.email">email</a></code></li>
+<li><code><a title="perimeter81-api.model.User.inviteMessage" href="#perimeter81-api.model.User.inviteMessage">inviteMessage</a></code></li>
+<li><code><a title="perimeter81-api.model.User.profileData" href="#perimeter81-api.model.User.profileData">profileData</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
