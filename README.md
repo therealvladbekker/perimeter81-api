@@ -11,4 +11,4 @@ Getting started:
   - Click on Generate to create the desired API Key. Once the API Key is generated it will be copied to the clipboard automatically.
 - *pip install p81api*
 - Copy *getting_started.py* and run it
-- Read the docs
+- [Read the docs](https://vladbekker-p81.github.io/perimeter81-api/)
