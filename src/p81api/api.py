@@ -125,7 +125,6 @@ def list_networks(auth: Auth) -> ListNetworksApiCallResult:
     try:
         temp_results: List[Dict] = _get(url, auth)
         results: List[Network] = [from_dict(Network, x) for x in temp_results['data']]
-        print(temp_results)
         return ListNetworksApiCallResult(True, None, results)
     except Exception as e:
         return ListNetworksApiCallResult(False, [str(e)], None)
