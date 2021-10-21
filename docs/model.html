@@ -224,7 +224,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ApiCallResultBase:
+<pre><code class="python">@dataclass()
+class ApiCallResultBase:
     success: bool
     errors: List[Err]</code></pre>
 </details>
@@ -257,7 +258,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class CreateGroupApiCallResult(ApiCallResultBase):
+<pre><code class="python">@dataclass
+class CreateGroupApiCallResult(ApiCallResultBase):
     results: List[CreateGroupResponse]</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -274,7 +276,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </dd>
 <dt id="perimeter81-api.model.CreateGroupResponse"><code class="flex name class">
 <span>class <span class="ident">CreateGroupResponse</span></span>
-<span>(</span><span>tenantId: str, name: str, description: str, isDefault: bool, applications: List[~T], networks: List[~T], vpnLocations: List[~T], users: List[~T], createdAt: str, updatedAt: str, id: str)</span>
+<span>(</span><span>tenantId: str, name: str, description: str, isDefault: bool, applications: List, networks: List, vpnLocations: List, users: List, createdAt: str, updatedAt: str, id: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>CreateGroupResponse(tenantId: str, name: str, description: str, isDefault: bool, applications: List, networks: List, vpnLocations: List, users: List, createdAt: str, updatedAt: str, id: str)</p></div>
@@ -282,7 +284,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class CreateGroupResponse:
+<pre><code class="python">@dataclass
+class CreateGroupResponse:
     tenantId: str
     name: str
     description: str
@@ -297,7 +300,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </details>
 <h3>Class variables</h3>
 <dl>
-<dt id="perimeter81-api.model.CreateGroupResponse.applications"><code class="name">var <span class="ident">applications</span> : List[~T]</code></dt>
+<dt id="perimeter81-api.model.CreateGroupResponse.applications"><code class="name">var <span class="ident">applications</span> : List</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -321,7 +324,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.CreateGroupResponse.networks"><code class="name">var <span class="ident">networks</span> : List[~T]</code></dt>
+<dt id="perimeter81-api.model.CreateGroupResponse.networks"><code class="name">var <span class="ident">networks</span> : List</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -333,11 +336,11 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.CreateGroupResponse.users"><code class="name">var <span class="ident">users</span> : List[~T]</code></dt>
+<dt id="perimeter81-api.model.CreateGroupResponse.users"><code class="name">var <span class="ident">users</span> : List</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.CreateGroupResponse.vpnLocations"><code class="name">var <span class="ident">vpnLocations</span> : List[~T]</code></dt>
+<dt id="perimeter81-api.model.CreateGroupResponse.vpnLocations"><code class="name">var <span class="ident">vpnLocations</span> : List</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -353,7 +356,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class CreateUserApiCallResult(ApiCallResultBase):
+<pre><code class="python">@dataclass
+class CreateUserApiCallResult(ApiCallResultBase):
     results: List[CreateUserResponse]</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -378,7 +382,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class CreateUserResponse:
+<pre><code class="python">@dataclass
+class CreateUserResponse:
     tenantId: str
     terminated: bool
     initialsColor: str
@@ -479,7 +484,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class GetNetworksHealthApiCallResult(ApiCallResultBase):
+<pre><code class="python">@dataclass
+class GetNetworksHealthApiCallResult(ApiCallResultBase):
     results: List[NetworkHealth]</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -504,7 +510,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Group:
+<pre><code class="python">@dataclass
+class Group:
     name: str
     description: str</code></pre>
 </details>
@@ -530,7 +537,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class InternalUser(User):
+<pre><code class="python">@dataclass
+class InternalUser(User):
     idpType: str = &#39;database&#39;
     origin: str = &#39;API&#39;
     emailVerified: bool = True</code></pre>
@@ -565,7 +573,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ListNetworksApiCallResult(ApiCallResultBase):
+<pre><code class="python">@dataclass
+class ListNetworksApiCallResult(ApiCallResultBase):
     results: List[Network]</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -590,7 +599,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ListUsersArguments:
+<pre><code class="python">@dataclass
+class ListUsersArguments:
     q: str
     sort: List[Sort]
     qType: QueryType  # = QueryType.full.full
@@ -636,7 +646,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Network:
+<pre><code class="python">@dataclass
+class Network:
     geoPoint: NetworkGeoPoint
     name: str
     isDefault: bool
@@ -677,7 +688,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkGeoPoint:
+<pre><code class="python">@dataclass
+class NetworkGeoPoint:
     latitude: float
     longitude: float</code></pre>
 </details>
@@ -703,7 +715,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkHealth:
+<pre><code class="python">@dataclass
+class NetworkHealth:
     health: List[NetworkStatus]</code></pre>
 </details>
 <h3>Class variables</h3>
@@ -724,7 +737,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkMeta:
+<pre><code class="python">@dataclass
+class NetworkMeta:
     networkId: str
     instanceId: str</code></pre>
 </details>
@@ -750,7 +764,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkProvider:
+<pre><code class="python">@dataclass
+class NetworkProvider:
     region: str
     continentCode: str
     countryCode: str</code></pre>
@@ -773,7 +788,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </dd>
 <dt id="perimeter81-api.model.NetworkRegion"><code class="flex name class">
 <span>class <span class="ident">NetworkRegion</span></span>
-<span>(</span><span>geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, instances: List[Dict[~KT, ~VT]], provider: perimeter81-api.model.NetworkProvider, id: str)</span>
+<span>(</span><span>geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, instances: List[Dict], provider: perimeter81-api.model.NetworkProvider, id: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>NetworkRegion(geoPoint: perimeter81-api.model.NetworkGeoPoint, name: str, instances: List[Dict], provider: perimeter81-api.model.NetworkProvider, id: str)</p></div>
@@ -781,7 +796,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkRegion:
+<pre><code class="python">@dataclass
+class NetworkRegion:
     geoPoint: NetworkGeoPoint
     name: str
     instances: List[Dict]
@@ -798,7 +814,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.NetworkRegion.instances"><code class="name">var <span class="ident">instances</span> : List[Dict[~KT, ~VT]]</code></dt>
+<dt id="perimeter81-api.model.NetworkRegion.instances"><code class="name">var <span class="ident">instances</span> : List[Dict]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -822,7 +838,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class NetworkStatus:
+<pre><code class="python">@dataclass
+class NetworkStatus:
     type_: str
     meta: NetworkMeta
     status: bool</code></pre>
@@ -853,7 +870,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ProfileData:
+<pre><code class="python">@dataclass
+class ProfileData:
     firstName: str
     lastName: str
     roleName: str
@@ -899,11 +917,11 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="perimeter81-api.model.QueryOperator.and_"><code class="name">var <span class="ident">and_</span> : <enum.auto object at 0x107cadd30></code></dt>
+<dt id="perimeter81-api.model.QueryOperator.and_"><code class="name">var <span class="ident">and_</span> : <enum.auto object at 0x103948220></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.QueryOperator.or_"><code class="name">var <span class="ident">or_</span> : <enum.auto object at 0x107cadd60></code></dt>
+<dt id="perimeter81-api.model.QueryOperator.or_"><code class="name">var <span class="ident">or_</span> : <enum.auto object at 0x103948040></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -929,11 +947,11 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="perimeter81-api.model.QueryType.full"><code class="name">var <span class="ident">full</span> : <enum.auto object at 0x107cadcd0></code></dt>
+<dt id="perimeter81-api.model.QueryType.full"><code class="name">var <span class="ident">full</span> : <enum.auto object at 0x103948ac0></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="perimeter81-api.model.QueryType.partial"><code class="name">var <span class="ident">partial</span> : <enum.auto object at 0x107cadd00></code></dt>
+<dt id="perimeter81-api.model.QueryType.partial"><code class="name">var <span class="ident">partial</span> : <enum.auto object at 0x103948a90></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -949,7 +967,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Sort:
+<pre><code class="python">@dataclass
+class Sort:
     field: str
     order: SortOrder</code></pre>
 </details>
@@ -985,7 +1004,7 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="perimeter81-api.model.SortOrder.asc"><code class="name">var <span class="ident">asc</span> : <enum.auto object at 0x107caddf0></code></dt>
+<dt id="perimeter81-api.model.SortOrder.asc"><code class="name">var <span class="ident">asc</span> : <enum.auto object at 0x10340dbe0></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -1005,7 +1024,8 @@ class GetNetworksHealthApiCallResult(ApiCallResultBase):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class User:
+<pre><code class="python">@dataclass
+class User:
     email: str
     inviteMessage: str
     accessGroups: List[str]

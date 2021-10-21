@@ -243,7 +243,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="perimeter81-api.api.authenticate"><code class="name flex">
-<span>def <span class="ident">authenticate</span></span>(<span>api_key: str) ‑> Dict[~KT, ~VT]</span>
+<span>def <span class="ident">authenticate</span></span>(<span>api_key: str) ‑> Dict</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Authenticate</p></div>
@@ -267,7 +267,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.create_group"><code class="name flex">
-<span>def <span class="ident">create_group</span></span>(<span>auth: Dict[~KT, ~VT], group: model.Group) ‑> model.CreateGroupApiCallResult</span>
+<span>def <span class="ident">create_group</span></span>(<span>auth: Dict, group: model.Group) ‑> model.CreateGroupApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a Group</p></div>
@@ -283,7 +283,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.create_groups"><code class="name flex">
-<span>def <span class="ident">create_groups</span></span>(<span>auth: Dict[~KT, ~VT], groups: List[model.Group]) ‑> model.CreateGroupApiCallResult</span>
+<span>def <span class="ident">create_groups</span></span>(<span>auth: Dict, groups: List[model.Group]) ‑> model.CreateGroupApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a few Groups</p></div>
@@ -310,7 +310,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.create_user"><code class="name flex">
-<span>def <span class="ident">create_user</span></span>(<span>auth: Dict[~KT, ~VT], user: model.User) ‑> model.CreateUserApiCallResult</span>
+<span>def <span class="ident">create_user</span></span>(<span>auth: Dict, user: model.User) ‑> model.CreateUserApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a User</p></div>
@@ -326,7 +326,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.create_users"><code class="name flex">
-<span>def <span class="ident">create_users</span></span>(<span>auth: Dict[~KT, ~VT], users: List[model.User]) ‑> model.CreateUserApiCallResult</span>
+<span>def <span class="ident">create_users</span></span>(<span>auth: Dict, users: List[model.User]) ‑> model.CreateUserApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a few Users</p></div>
@@ -352,7 +352,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.delete_group"><code class="name flex">
-<span>def <span class="ident">delete_group</span></span>(<span>auth: Dict[~KT, ~VT], group_id: str) ‑> model.ApiCallResultBase</span>
+<span>def <span class="ident">delete_group</span></span>(<span>auth: Dict, group_id: str) ‑> model.ApiCallResultBase</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -365,7 +365,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.delete_groups"><code class="name flex">
-<span>def <span class="ident">delete_groups</span></span>(<span>auth: Dict[~KT, ~VT], group_ids: List[str]) ‑> model.ApiCallResultBase</span>
+<span>def <span class="ident">delete_groups</span></span>(<span>auth: Dict, group_ids: List[str]) ‑> model.ApiCallResultBase</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -378,7 +378,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.delete_user"><code class="name flex">
-<span>def <span class="ident">delete_user</span></span>(<span>auth: Dict[~KT, ~VT], user_id: str) ‑> model.ApiCallResultBase</span>
+<span>def <span class="ident">delete_user</span></span>(<span>auth: Dict, user_id: str) ‑> model.ApiCallResultBase</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Delete a User</p></div>
@@ -394,7 +394,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.delete_users"><code class="name flex">
-<span>def <span class="ident">delete_users</span></span>(<span>auth: Dict[~KT, ~VT], user_ids: List[str]) ‑> model.ApiCallResultBase</span>
+<span>def <span class="ident">delete_users</span></span>(<span>auth: Dict, user_ids: List[str]) ‑> model.ApiCallResultBase</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Delete a few Users</p></div>
@@ -410,7 +410,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.get_network_health"><code class="name flex">
-<span>def <span class="ident">get_network_health</span></span>(<span>auth: Dict[~KT, ~VT], network_id: str) ‑> model.GetNetworksHealthApiCallResult</span>
+<span>def <span class="ident">get_network_health</span></span>(<span>auth: Dict, network_id: str) ‑> model.GetNetworksHealthApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Get Network health</p></div>
@@ -426,7 +426,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.get_networks_health"><code class="name flex">
-<span>def <span class="ident">get_networks_health</span></span>(<span>auth: Dict[~KT, ~VT], network_ids: List[str]) ‑> model.GetNetworksHealthApiCallResult</span>
+<span>def <span class="ident">get_networks_health</span></span>(<span>auth: Dict, network_ids: List[str]) ‑> model.GetNetworksHealthApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Get a few Networks health</p></div>
@@ -452,7 +452,7 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_code: int = 20
 </details>
 </dd>
 <dt id="perimeter81-api.api.list_networks"><code class="name flex">
-<span>def <span class="ident">list_networks</span></span>(<span>auth: Dict[~KT, ~VT]) ‑> model.ListNetworksApiCallResult</span>
+<span>def <span class="ident">list_networks</span></span>(<span>auth: Dict) ‑> model.ListNetworksApiCallResult</span>
 </code></dt>
 <dd>
 <div class="desc"><p>List Networks</p></div>
