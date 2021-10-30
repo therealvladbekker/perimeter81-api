@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import List, Dict, Any
+from dataclasses import dataclass, field
+from typing import List, Dict, Any, Union, Optional
 from enum import Enum, auto
 
 Err = str
@@ -14,17 +14,18 @@ class Group:
 
 @dataclass
 class CreateGroupResponse:
-    tenantId: str
-    name: str
-    description: str
-    isDefault: bool
-    applications: List
-    networks: List
-    vpnLocations: List
-    users: List
-    createdAt: str
-    updatedAt: str
-    id: str
+    duplicate: Optional[bool] = False
+    tenantId: str = None
+    name: str = None
+    description: str = None
+    isDefault: bool = False
+    applications: List = field(default_factory=list)
+    networks: List = field(default_factory=list)
+    vpnLocations: List = field(default_factory=list)
+    users: List = field(default_factory=list)
+    createdAt: str = None
+    updatedAt: str = None
+    id: str = None
 
 
 @dataclass
@@ -144,13 +145,17 @@ class NetworkRegion:
 class NetworkMeta:
     networkId: str
     instanceId: str
+    tunnelName: str = 'EmptyInCaseOfGateWay'
 
 
 @dataclass
 class NetworkStatus:
-    type_: str
+    type: str
     meta: NetworkMeta
-    status: bool
+    status: Union[str, bool]  # REST API bug (P81-5531) - sometimes we get a string and sometimes a bool
+
+    def is_healthy(self):
+        return str(self.status).lower() == 'passing'
 
 
 @dataclass
