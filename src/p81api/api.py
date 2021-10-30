@@ -205,38 +205,3 @@ def _post(url: str, headers: Dict, payload: Dict, expected_status_codes: List[in
             f'Expected status code: {expected_status_codes}. Actual status code: {r.status_code}. Reason: {r.text}')
     else:
         return r.json()
-
-
-def __post(url: str, headers: Dict, payload: Dict, expected_status_codes: List[int] = [200]) -> Dict:
-    params: str = json.dumps(payload).encode('utf8')
-    request: urllib.request.Request = urllib.request.Request(url, data=params, headers=headers)
-    try:
-        response: http.client.HTTPResponse = urllib.request.urlopen(request)
-    except Exception as e:
-        print(type(e))
-    if response.getcode() not in expected_status_codes:
-        reason: str = response.read()
-        raise Exception(
-            f'Expected status code: {expected_status_codes}. Actual status code: {response.getcode()}. Reason: {reason}')
-    else:
-        return json.loads(response.read().decode('utf8'))
-
-
-def __get(url: str, headers: Dict, expected_status_codes: List[int] = [200]) -> List[Dict]:
-    request: urllib.request.Request = urllib.request.Request(url=url, method='GET', headers=headers)
-    response: http.client.HTTPResponse = urllib.request.urlopen(request)
-    if response.getcode() not in expected_status_codes:
-        reason: str = response.read()
-        raise Exception(
-            f'Expected status code: {expected_status_codes}. Actual status code: {response.getcode()}. Reason: {reason}')
-    else:
-        return json.loads(response.read().decode('utf8'))
-
-
-def __delete(url: str, headers: Dict, expected_status_codes: List[int] = [200]) -> None:
-    request: urllib.request.Request = urllib.request.Request(url=url, method='DELETE', headers=headers)
-    response: http.client.HTTPResponse = urllib.request.urlopen(request)
-    if response.getcode() not in expected_status_codes:
-        reason: str = response.read()
-        raise Exception(
-            f'Expected status code: {expected_status_codes}. Actual status code: {response.getcode()}. Reason: {reason}')
